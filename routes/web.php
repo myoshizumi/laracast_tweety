@@ -19,7 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('tweets', [TweetsController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::get('tweets', [TweetsController::class, 'index'])->name('dashboard');
+    Route::post('tweets', [TweetsController::class, 'store']);
+});
 
 Route::get('/dashboard', function () {
     // $tweets = Tweet::latest()->gets();
