@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app>
     <header class="mb-6 relative">
         <img src="/images/default-profile-banner.jpg" alt="" class="mb-2">
         <div class="flex justify-between items-center mb-4">
@@ -14,8 +12,10 @@
 
             </div>
         </div>
-        <p class="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam expedita quam ipsam possimus rem
-            voluptate inventore similique iste deserunt debitis corrupti natus, optio atque ab accusamus, animi voluptas non
+        <p class="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam expedita quam ipsam possimus
+            rem
+            voluptate inventore similique iste deserunt debitis corrupti natus, optio atque ab accusamus, animi voluptas
+            non
             sunt?</p>
 
 
@@ -27,4 +27,4 @@
     @include('_timeline', [
         'tweets' => $user->tweets,
     ])
-@endsection
+</x-app>
