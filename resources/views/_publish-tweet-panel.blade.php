@@ -4,7 +4,7 @@
         <textarea name="body" class="w-full" placeholder="what's up doc?" required></textarea>
         <hr class="my-4">
         <footer class="flex justify-between">
-            <img src="{{ auth()->user()->getAvatarAttributes() }}" alt="your avatar" width="40" {{-- src="{{ auth()->user()->avatar }}" --}}
+            <img src="{{ auth()->user()->getAvatarAttribute() }}" alt="your avatar" width="40" {{-- src="{{ auth()->user()->avatar }}" --}}
                 class="rounded-full mr-2">
             <button type="submit" class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white">Tweet-a-roo!</button>
         </footer>

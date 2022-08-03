@@ -13,11 +13,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Followable;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'username',
+    //     'name',
+    //     'avatar',
+    //     'email',
+    //     'password',
+    // ];
+
+    protected $guarded = [];
 
     protected $hidden = [
         'password',
@@ -28,9 +32,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttributes()
+    // public function getAvatarAttribute($value)
+    public function getAvatarAttribute()
     {
+        // return asset($value ?: 'images/default-avatar.jpeg);
         return "https://i.pravatar.cc/400?u=" . $this->email;
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
@@ -54,7 +65,7 @@ class User extends Authenticatable
 
     public function path($append = '')
     {
-        $path = route('profile', $this->name);
+        $path = route('profile', $this->username);
 
         return $append ? "{$path}/{$append}" : $path;
     }

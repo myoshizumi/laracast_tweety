@@ -3,7 +3,7 @@
         <div class="relative">
             <img src="/images/default-profile-banner.jpg" alt="" class="mb-2">
 
-            <img src="https://i.pravatar.cc/400?u={{ $user->email }}" width="150" alt=""
+            <img src="{{ $user->avatar }}" {{-- src={{ $user->avatar }} --}} width="150" alt=""
                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2" style="left: 50%;">
         </div>
 
