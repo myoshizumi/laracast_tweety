@@ -11,8 +11,10 @@
                 {{ $tweet->user->name }}
             </a>
         </h5>
-        <p class="test-sm">
+        <p class="test-sm mb-3">
             {{ $tweet->body }}
         </p>
+
+        <x-like-buttons :tweet="$tweet" />
     </div>
 </div>
