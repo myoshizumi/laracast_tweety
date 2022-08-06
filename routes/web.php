@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
     Route::patch('/profiles/{user:username}', [ProfilesController::class, 'update'])->middleware('can:edit,user');
 
-    Route::get('/explore', [ExploreController::class, 'index']);
+    Route::get('/explore', ExploreController::class);
 });
 
 Route::get('/profiles/{user:username}', [ProfilesController::class, 'show'])->name(
@@ -29,9 +29,6 @@ Route::get('/profiles/{user:username}', [ProfilesController::class, 'show'])->na
 
 
 Route::get('/dashboard', function () {
-    // $tweets = Tweet::latest()->gets();
-
-    // return view('dashboard', ['tweets' => $tweets]);
     return view('dashboard', ['tweets' => auth()->user()->timeline()]);
 })->middleware(['auth'])->name('dashboard');
 
